@@ -7,12 +7,19 @@ export default {
       name: "title",
       title: "Title",
       type: "string",
+      validation: (Rule) => Rule.required(),
     },
-    { name: "subtitle", type: "string", title: "Subtitle" },
+    {
+      name: "subtitle",
+      type: "string",
+      title: "Subtitle",
+      validation: (Rule) => Rule.required(),
+    },
     {
       name: "slug",
       title: "Slug",
       type: "slug",
+      validation: (Rule) => Rule.required(),
       options: {
         source: "title",
         maxLength: 96,
@@ -28,6 +35,7 @@ export default {
       name: "mainImage",
       title: "Main image",
       type: "image",
+      validation: (Rule) => Rule.required(),
       fields: [
         {
           type: "text",
