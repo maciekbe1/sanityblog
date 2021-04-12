@@ -1,14 +1,27 @@
-/**
- * This is the schema definition for the rich text fields used for
- * for this blog studio. When you import it in schemas.js it can be
- * reused in other parts of the studio with:
- *  {
- *    name: 'someName',
- *    title: 'Some title',
- *    type: 'blockContent'
- *  }
- */
+import { FaPaperclip } from "react-icons/fa";
+import React from "react";
 
+const highlightIcon = () => <span style={{ fontWeight: "bold" }}>H</span>;
+const highlightRender = (props) => (
+  <span style={{ backgroundColor: "yellow" }}>{props.children}</span>
+);
+const h2Style = (props) => (
+  <h2 style={{ fontSize: "1.5rem" }}>{props.children}</h2>
+);
+const h3Style = (props) => (
+  <h3
+    style={{
+      fontSize: "1.125rem",
+    }}
+  >
+    {props.children}
+  </h3>
+);
+const normalStyle = (props) => (
+  <p style={{ marginTop: "0", marginBottom: "0", fontSize: "1rem" }}>
+    {props.children}
+  </p>
+);
 export default {
   title: "Block Content",
   name: "blockContent",
@@ -18,12 +31,36 @@ export default {
     {
       type: "block",
       styles: [
-        { title: "Normal", value: "normal" },
-        { title: "H1", value: "h1" },
-        { title: "H2", value: "h2" },
-        { title: "H3", value: "h3" },
-        { title: "H4", value: "h4" },
+        {
+          title: "Normal",
+          value: "normal",
+          blockEditor: {
+            render: normalStyle,
+          },
+        },
+        {
+          title: "H2",
+          value: "h2",
+          blockEditor: {
+            render: h2Style,
+          },
+        },
+        {
+          title: "H3",
+          value: "h3",
+          blockEditor: {
+            render: h3Style,
+          },
+        },
         { title: "Quote", value: "blockquote" },
+        {
+          title: "Highlight",
+          value: "highlight",
+          blockEditor: {
+            icon: highlightIcon,
+            render: highlightRender,
+          },
+        },
       ],
       lists: [{ title: "Bullet", value: "bullet" }],
       // Marks let you mark up inline text in the block editor.
@@ -51,6 +88,9 @@ export default {
                 ],
               },
             ],
+            blockEditor: {
+              icon: FaPaperclip,
+            },
           },
           {
             name: "link",
