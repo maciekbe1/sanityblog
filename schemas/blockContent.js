@@ -1,4 +1,4 @@
-import { FaPaperclip } from "react-icons/fa";
+import { FaPaperclip, IoColorPaletteOutline } from "react-icons/fa";
 import React from "react";
 
 const highlightIcon = () => <span style={{ fontWeight: "bold" }}>H</span>;
@@ -22,6 +22,7 @@ const normalStyle = (props) => (
     {props.children}
   </p>
 );
+
 export default {
   title: "Block Content",
   name: "blockContent",
@@ -62,7 +63,10 @@ export default {
           },
         },
       ],
-      lists: [{ title: "Bullet", value: "bullet" }],
+      lists: [
+        { title: "Bullet", value: "bullet" },
+        { title: "Number", value: "number" },
+      ],
       // Marks let you mark up inline text in the block editor.
       marks: {
         // Decorators usually describe a single property – e.g. a typographic
@@ -70,6 +74,7 @@ export default {
         decorators: [
           { title: "Strong", value: "strong" },
           { title: "Emphasis", value: "em" },
+          { title: "Strike", value: "strike-through" },
         ],
         // Annotations can be any object structure – e.g. a link or a footnote.
         annotations: [
@@ -109,6 +114,14 @@ export default {
                 type: "boolean",
               },
             ],
+          },
+          {
+            name: "color",
+            type: "color",
+            title: "Color",
+            blockEditor: {
+              icon: IoColorPaletteOutline,
+            },
           },
         ],
       },
