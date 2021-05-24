@@ -15,9 +15,7 @@
     "@sanity/desk-tool",
     "@sanity/code-input",
     "@sanity/production-preview",
-    "@sanity/color-input",
-    "vercel-deploy",
-    "@sanity/dashboard"
+    "@sanity/color-input"
   ],
   "env": {
     "development": {
