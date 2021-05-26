@@ -14,6 +14,12 @@ export default {
       description: "Comments won't show on the site without approval",
     },
     {
+      name: "author",
+      title: "Author",
+      type: "reference",
+      to: { type: "author" },
+    },
+    {
       name: "email",
       type: "string",
     },
