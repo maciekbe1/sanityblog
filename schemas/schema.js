@@ -10,8 +10,16 @@ import category from "./category";
 import post from "./post";
 import author from "./author";
 import comment from "./comment";
+import codeSandbox from "./codeSandbox";
 
 export default createSchema({
   name: "default",
-  types: schemaTypes.concat([post, author, category, comment, blockContent]),
+  types: schemaTypes.concat([
+    post,
+    author,
+    category,
+    comment,
+    blockContent,
+    codeSandbox,
+  ]),
 });

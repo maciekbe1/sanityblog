@@ -128,6 +128,7 @@ export default {
         ],
       },
     },
+    { type: "codeSandbox" },
     {
       type: "image",
       fields: [
